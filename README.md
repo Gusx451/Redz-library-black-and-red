@@ -1455,7 +1455,7 @@ function redzlib:MakeWindow(Configs)
 			BackgroundColor3 = Color3.fromRGB(255, 0, 0),
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
-			ZIndex = 0
+			ZIndex = 1
 		})
 		Make("Corner", Dot, UDim.new(1, 0))
 		
