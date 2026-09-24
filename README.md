@@ -1448,22 +1448,22 @@ function redzlib:MakeWindow(Configs)
 	
 	local MainCorner = Make("Corner", MainFrame)
 
-	for Index = 1, 8 do
+	for Index = 1, 15 do
 		local Dot = Create("Frame", MainFrame, {
 			Size = UDim2.fromOffset(Index % 3 + 2, Index % 3 + 2),
 			Position = UDim2.fromScale((Index * 0.137) % 0.9 + 0.05, (Index * 0.211) % 0.85 + 0.05),
-			BackgroundColor3 = Theme["Color Theme"],
-			BackgroundTransparency = 0.72,
+			BackgroundColor3 = Color3.fromRGB(255, 0, 0),
+			BackgroundTransparency = 0.05,
 			BorderSizePixel = 0,
-			ZIndex = 0
+			ZIndex = 1
 		})
 		Make("Corner", Dot, UDim.new(1, 0))
 		
 		task.spawn(function()
 			while Dot.Parent do
 				local Target = UDim2.fromScale(
-					math.clamp(Dot.Position.X.Scale + (Index % 2 == 0 and 0.08 or -0.08), 0.04, 0.92),
-					math.clamp(Dot.Position.Y.Scale + (Index % 3 == 0 and -0.07 or 0.07), 0.04, 0.92)
+					math.random(5, 95) / 100,
+					math.random(5, 95) / 100
 				)
 				local Tween = CreateTween({Dot, "Position", Target, 3 + Index % 3})
 				Tween.Completed:Wait()
