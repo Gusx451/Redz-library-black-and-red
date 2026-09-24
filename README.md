@@ -1448,12 +1448,12 @@ function redzlib:MakeWindow(Configs)
 	
 	local MainCorner = Make("Corner", MainFrame)
 
-	for Index = 1, 15 do
+	for Index = 1, 100 do
 		local Dot = Create("Frame", MainFrame, {
 			Size = UDim2.fromOffset(Index % 3 + 2, Index % 3 + 2),
 			Position = UDim2.fromScale((Index * 0.137) % 0.9 + 0.05, (Index * 0.211) % 0.85 + 0.05),
 			BackgroundColor3 = Color3.fromRGB(255, 0, 0),
-			BackgroundTransparency = 0.05,
+			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
 			ZIndex = 1
 		})
