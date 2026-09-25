@@ -1448,6 +1448,7 @@ function redzlib:MakeWindow(Configs)
 	})MakeDrag(MainFrame)
 	
 	local MainCorner = Make("Corner", MainFrame)
+	local AnimatedDots = {}
 
 	for Index = 1, 100 do
 		local Dot = Create("Frame", MainFrame, {
@@ -1459,6 +1460,7 @@ function redzlib:MakeWindow(Configs)
 			ZIndex = 1
 		})
 		Make("Corner", Dot, UDim.new(1, 0))
+		table.insert(AnimatedDots, Dot)
 		
 		task.spawn(function()
 			while Dot.Parent do
@@ -1639,12 +1641,18 @@ function redzlib:MakeWindow(Configs)
 			CreateTween({MainFrame, "Size", SaveSize, 0.25, true})
 			ControlSize1.Visible = true
 			ControlSize2.Visible = true
+			for _, Dot in ipairs(AnimatedDots) do
+				Dot.Visible = true
+			end
 			Minimized = false
 		else
 			MinimizeButton.Image = "rbxassetid://10734924532"
 			SaveSize = MainFrame.Size
 			ControlSize1.Visible = false
 			ControlSize2.Visible = false
+			for _, Dot in ipairs(AnimatedDots) do
+				Dot.Visible = false
+			end
 			CreateTween({MainFrame, "Size", UDim2.fromOffset(MainFrame.Size.X.Offset, 28), 0.25, true})
 			Minimized = true
 		end
