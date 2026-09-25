@@ -1482,6 +1482,7 @@ function redzlib:MakeWindow(Configs)
 	local TopBar = Create("Frame", Components, {
 		Size = UDim2.new(1, 0, 0, 28),
 		BackgroundTransparency = 1,
+		ZIndex = 2,
 		Name = "Top Bar"
 	})
 	
