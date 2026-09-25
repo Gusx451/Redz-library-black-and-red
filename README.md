@@ -1107,6 +1107,7 @@ end
 
 local ScreenGui = Create("ScreenGui", CoreGui, {
 	Name = "redz Library V5",
+	ZIndexBehavior = Enum.ZIndexBehavior.Global,
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
@@ -1482,7 +1483,7 @@ function redzlib:MakeWindow(Configs)
 	local TopBar = Create("Frame", Components, {
 		Size = UDim2.new(1, 0, 0, 28),
 		BackgroundTransparency = 1,
-		ZIndex = 2,
+		ZIndex = 10,
 		Name = "Top Bar"
 	})
 	
@@ -1496,7 +1497,7 @@ function redzlib:MakeWindow(Configs)
 		TextColor3 = Theme["Color Text"],
 		BackgroundTransparency = 1,
 		Font = Enum.Font.GothamMedium,
-		ZIndex = 2,
+		ZIndex = 10,
 		Name = "Title"
 	}, {
 		InsertTheme(Create("TextLabel", {
@@ -1511,7 +1512,7 @@ function redzlib:MakeWindow(Configs)
 			TextYAlignment = "Bottom",
 			TextSize = 8,
 			Font = Enum.Font.Gotham,
-			ZIndex = 2,
+			ZIndex = 10,
 			Name = "SubTitle"
 		}), "DarkText")
 	}), "Text")
