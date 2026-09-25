@@ -1643,6 +1643,7 @@ function redzlib:MakeWindow(Configs)
 			ControlSize2.Visible = true
 			for _, Dot in ipairs(AnimatedDots) do
 				Dot.Visible = true
+				Dot.BackgroundTransparency = 0
 			end
 			Minimized = false
 		else
@@ -1652,6 +1653,7 @@ function redzlib:MakeWindow(Configs)
 			ControlSize2.Visible = false
 			for _, Dot in ipairs(AnimatedDots) do
 				Dot.Visible = false
+				Dot.BackgroundTransparency = 1
 			end
 			CreateTween({MainFrame, "Size", UDim2.fromOffset(MainFrame.Size.X.Offset, 28), 0.25, true})
 			Minimized = true
