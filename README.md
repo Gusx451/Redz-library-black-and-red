@@ -1448,6 +1448,24 @@ function redzlib:MakeWindow(Configs)
 	})MakeDrag(MainFrame)
 	
 	local MainCorner = Make("Corner", MainFrame)
+	local NeonBorder = Create("UIStroke", MainFrame, {
+		Color = Color3.fromRGB(255, 0, 0),
+		Thickness = 2,
+		Transparency = 0.05,
+		ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	})
+	local NeonBorderGradient = Create("UIGradient", NeonBorder, {
+		Color = ColorSequence.new({
+			ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(100, 0, 0)),
+			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 40, 40)),
+			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(100, 0, 0)),
+			ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+		})
+	})
+	TweenService:Create(NeonBorderGradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {
+		Rotation = 360
+	}):Play()
 	local AnimatedDots = {}
 
 	for Index = 1, 100 do
@@ -1638,6 +1656,7 @@ function redzlib:MakeWindow(Configs)
 		
 		if Minimized then
 			MinimizeButton.Image = "rbxassetid://10734896206"
+			NeonBorder.Enabled = true
 			CreateTween({MainFrame, "Size", SaveSize, 0.25, true})
 			ControlSize1.Visible = true
 			ControlSize2.Visible = true
@@ -1649,6 +1668,7 @@ function redzlib:MakeWindow(Configs)
 		else
 			MinimizeButton.Image = "rbxassetid://10734924532"
 			SaveSize = MainFrame.Size
+			NeonBorder.Enabled = false
 			ControlSize1.Visible = false
 			ControlSize2.Visible = false
 			for _, Dot in ipairs(AnimatedDots) do
