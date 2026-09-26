@@ -1485,12 +1485,12 @@ function redzlib:MakeWindow(Configs)
 		
 		task.spawn(function()
 			while Dot.Parent do
-				local Target = UDim2.fromScale(
-					math.random(5, 95) / 100,
-					math.random(5, 95) / 100
-				)
+				local Target = UDim2.fromScale(Dot.Position.X.Scale, 1.05)
 				local Tween = CreateTween({Dot, "Position", Target, 3 + Index % 3})
 				Tween.Completed:Wait()
+				if Dot.Parent then
+					Dot.Position = UDim2.fromScale(math.random(5, 95) / 100, -0.05)
+				end
 			end
 		end)
 	end
