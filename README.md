@@ -1494,14 +1494,14 @@ function redzlib:MakeWindow(Configs)
 		Name = "Top Bar"
 	})
 	
-	local Title = InsertTheme(Create("TextLabel", TopBar, {
+	local Title = Create("TextLabel", TopBar, {
 		Position = UDim2.new(0, 15, 0.5),
 		AnchorPoint = Vector2.new(0, 0.5),
 		AutomaticSize = "XY",
 		Text = WTitle,
 		TextXAlignment = "Left",
 		TextSize = 12,
-		TextColor3 = Theme["Color Text"],
+		TextColor3 = Color3.fromRGB(255, 0, 0),
 		BackgroundTransparency = 1,
 		Font = Enum.Font.GothamMedium,
 		ZIndex = 10,
@@ -1522,7 +1522,7 @@ function redzlib:MakeWindow(Configs)
 			ZIndex = 10,
 			Name = "SubTitle"
 		}), "DarkText")
-	}), "Text")
+	})
 	
 	local MainScroll = InsertTheme(Create("ScrollingFrame", Components, {
 		Size = UDim2.new(0, redzlib.Save.TabSize, 1, -TopBar.Size.Y.Offset),
