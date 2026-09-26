@@ -1684,6 +1684,14 @@ function redzlib:MakeWindow(Configs)
 	function Window:Minimize()
 		MainFrame.Visible = not MainFrame.Visible
 	end
+	local ToggleHubConnection = UserInputService.InputBegan:Connect(function(Input, GameProcessed)
+		if not GameProcessed and Input.KeyCode == Enum.KeyCode.RightAlt then
+			Window:Minimize()
+		end
+	end)
+	ScreenGui.Destroying:Connect(function()
+		ToggleHubConnection:Disconnect()
+	end)
 	function Window:AddMinimizeButton(Configs)
 		local Button = MakeDrag(Create("ImageButton", ScreenGui, {
 			Size = UDim2.fromOffset(35, 35),
