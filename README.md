@@ -1440,17 +1440,26 @@ function redzlib:MakeWindow(Configs)
 	local MainFrame = InsertTheme(Create("ImageButton", ScreenGui, {
 		Size = UDim2.fromOffset(UISizeX, UISizeY),
 		Position = UDim2.new(0.5, -UISizeX/2, 0.5, -UISizeY/2),
-		BackgroundTransparency = 0.15,
-		Image = "rbxassetid://5456914992",
-		ImageTransparency = 0.15,
-		ScaleType = Enum.ScaleType.Crop,
+		BackgroundTransparency = 1,
 		Name = "Hub"
 	}), "Main")
-	Make("Gradient", MainFrame, {
-		Rotation = 45
-	})MakeDrag(MainFrame)
+	MakeDrag(MainFrame)
 	
 	local MainCorner = Make("Corner", MainFrame)
+	local BackgroundImage = Create("ImageLabel", MainFrame, {
+		Name = "BackgroundImage",
+		Size = UDim2.fromScale(1, 1),
+		Position = UDim2.fromScale(0, 0),
+		BackgroundTransparency = 1,
+		Image = "rbxassetid://5456914992",
+		ImageTransparency = 0,
+		ImageColor3 = Color3.fromRGB(255, 255, 255),
+		ScaleType = Enum.ScaleType.Crop,
+		Active = false,
+		Selectable = false,
+		ZIndex = 1
+	})
+	Make("Corner", BackgroundImage, UDim.new(0, 7))
 	local NeonBorder = Create("UIStroke", MainFrame, {
 		Color = Color3.fromRGB(0, 255, 0),
 		Thickness = 2,
