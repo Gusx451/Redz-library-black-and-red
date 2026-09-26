@@ -1469,15 +1469,16 @@ function redzlib:MakeWindow(Configs)
 	local AnimatedDots = {}
 
 	for Index = 1, 100 do
-		local Dot = Create("Frame", MainFrame, {
-			Size = UDim2.fromOffset(Index % 3 + 2, Index % 3 + 2),
+		local Dot = Create("TextLabel", MainFrame, {
+			Size = UDim2.fromOffset(12, 14),
 			Position = UDim2.fromScale((Index * 0.137) % 0.9 + 0.05, (Index * 0.211) % 0.85 + 0.05),
-			BackgroundColor3 = Color3.fromRGB(0, 255, 0),
-			BackgroundTransparency = Index % 2,
-			BorderSizePixel = 0,
-			ZIndex = 1
+			BackgroundTransparency = 1,
+			Text = tostring(Index % 2),
+			TextColor3 = Color3.fromRGB(0, 255, 0),
+			TextSize = 12,
+			Font = Enum.Font.GothamBold,
+			ZIndex = 2
 		})
-		Make("Corner", Dot, UDim.new(1, 0))
 		table.insert(AnimatedDots, Dot)
 		
 		task.spawn(function()
