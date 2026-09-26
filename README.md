@@ -1475,6 +1475,8 @@ function redzlib:MakeWindow(Configs)
 			BackgroundTransparency = 1,
 			Text = tostring(Index % 2),
 			TextColor3 = Color3.fromRGB(0, 255, 0),
+			TextStrokeColor3 = Color3.fromRGB(0, 255, 0),
+			TextStrokeTransparency = 0.15,
 			TextSize = 12,
 			Font = Enum.Font.GothamBold,
 			ZIndex = 1
@@ -1663,7 +1665,7 @@ function redzlib:MakeWindow(Configs)
 			ControlSize2.Visible = true
 			for _, Dot in ipairs(AnimatedDots) do
 				Dot.Visible = true
-				Dot.BackgroundTransparency = 0
+				Dot.BackgroundTransparency = 1
 			end
 			Minimized = false
 		else
