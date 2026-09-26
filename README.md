@@ -19,8 +19,8 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
 			["Color Stroke"] = Color3.fromRGB(25, 25, 25),
-			["Color Theme"] = Color3.fromRGB(255, 0, 0),
-			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Theme"] = Color3.fromRGB(0, 255, 0),
+			["Color Text"] = Color3.fromRGB(0, 255, 0),
 			["Color Dark Text"] = Color3.fromRGB(255, 255, 255)
 		},
 		Darker = {
@@ -1449,18 +1449,18 @@ function redzlib:MakeWindow(Configs)
 	
 	local MainCorner = Make("Corner", MainFrame)
 	local NeonBorder = Create("UIStroke", MainFrame, {
-		Color = Color3.fromRGB(255, 0, 0),
+		Color = Color3.fromRGB(0, 255, 0),
 		Thickness = 2,
 		Transparency = 0.05,
 		ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	})
 	local NeonBorderGradient = Create("UIGradient", NeonBorder, {
 		Color = ColorSequence.new({
-			ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(100, 0, 0)),
-			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 40, 40)),
-			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(100, 0, 0)),
-			ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+			ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 0)),
+			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(0, 100, 0)),
+			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 255, 40)),
+			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(0, 100, 0)),
+			ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 0))
 		})
 	})
 	TweenService:Create(NeonBorderGradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {
@@ -1472,8 +1472,8 @@ function redzlib:MakeWindow(Configs)
 		local Dot = Create("Frame", MainFrame, {
 			Size = UDim2.fromOffset(Index % 3 + 2, Index % 3 + 2),
 			Position = UDim2.fromScale((Index * 0.137) % 0.9 + 0.05, (Index * 0.211) % 0.85 + 0.05),
-			BackgroundColor3 = Color3.fromRGB(255, 0, 0),
-			BackgroundTransparency = 0,
+			BackgroundColor3 = Color3.fromRGB(0, 255, 0),
+			BackgroundTransparency = Index % 2,
 			BorderSizePixel = 0,
 			ZIndex = 1
 		})
@@ -1641,7 +1641,7 @@ function redzlib:MakeWindow(Configs)
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
 			Title = "Close",
-			Text = "You Want Close Ui?",
+			Text = "Desative as opções antes de sair",
 			Options = {
 				{"Confirm", function()
 					ScreenGui:Destroy()
