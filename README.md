@@ -19,8 +19,8 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
 			["Color Stroke"] = Color3.fromRGB(25, 25, 25),
-			["Color Theme"] = Color3.fromRGB(0, 255, 0),
-			["Color Text"] = Color3.fromRGB(0, 255, 0),
+			["Color Theme"] = Color3.fromRGB(170, 0, 255),
+			["Color Text"] = Color3.fromRGB(170, 0, 255),
 			["Color Dark Text"] = Color3.fromRGB(255, 255, 255)
 		},
 		Darker = {
@@ -1451,7 +1451,7 @@ function redzlib:MakeWindow(Configs)
 		Size = UDim2.fromScale(1, 1),
 		Position = UDim2.fromScale(0, 0),
 		BackgroundTransparency = 1,
-		Image = "rbxassetid://5456914992",
+		Image = "rbxassetid://101284681644868",
 		ImageTransparency = 0,
 		ImageColor3 = Color3.fromRGB(255, 255, 255),
 		ScaleType = Enum.ScaleType.Crop,
@@ -1461,18 +1461,18 @@ function redzlib:MakeWindow(Configs)
 	})
 	Make("Corner", BackgroundImage, UDim.new(0, 7))
 	local NeonBorder = Create("UIStroke", MainFrame, {
-		Color = Color3.fromRGB(0, 255, 0),
+		Color = Color3.fromRGB(170, 0, 255),
 		Thickness = 2,
 		Transparency = 0.05,
 		ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	})
 	local NeonBorderGradient = Create("UIGradient", NeonBorder, {
 		Color = ColorSequence.new({
-			ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 0)),
-			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(0, 100, 0)),
-			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 255, 40)),
-			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(0, 100, 0)),
-			ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 0))
+			ColorSequenceKeypoint.new(0, Color3.fromRGB(170, 0, 255)),
+			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(85, 0, 130)),
+			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(210, 80, 255)),
+			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(85, 0, 130)),
+			ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
 		})
 	})
 	TweenService:Create(NeonBorderGradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {
