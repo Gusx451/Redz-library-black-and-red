@@ -1501,7 +1501,7 @@ function redzlib:MakeWindow(Configs)
 		Text = WTitle,
 		TextXAlignment = "Left",
 		TextSize = 12,
-		TextColor3 = Color3.fromRGB(255, 0, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
 		BackgroundTransparency = 1,
 		Font = Enum.Font.GothamMedium,
 		ZIndex = 10,
