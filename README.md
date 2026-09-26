@@ -1477,7 +1477,7 @@ function redzlib:MakeWindow(Configs)
 			TextColor3 = Color3.fromRGB(0, 255, 0),
 			TextSize = 12,
 			Font = Enum.Font.GothamBold,
-			ZIndex = 2
+			ZIndex = 1
 		})
 		table.insert(AnimatedDots, Dot)
 		
