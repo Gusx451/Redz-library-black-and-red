@@ -1441,6 +1441,9 @@ function redzlib:MakeWindow(Configs)
 		Size = UDim2.fromOffset(UISizeX, UISizeY),
 		Position = UDim2.new(0.5, -UISizeX/2, 0.5, -UISizeY/2),
 		BackgroundTransparency = 0.15,
+		Image = "rbxassetid://5456914992",
+		ImageTransparency = 0.15,
+		ScaleType = Enum.ScaleType.Crop,
 		Name = "Hub"
 	}), "Main")
 	Make("Gradient", MainFrame, {
@@ -1466,34 +1469,6 @@ function redzlib:MakeWindow(Configs)
 	TweenService:Create(NeonBorderGradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {
 		Rotation = 360
 	}):Play()
-	local AnimatedDots = {}
-
-	for Index = 1, 100 do
-		local Dot = Create("TextLabel", MainFrame, {
-			Size = UDim2.fromOffset(12, 14),
-			Position = UDim2.fromScale((Index * 0.137) % 0.9 + 0.05, (Index * 0.211) % 0.85 + 0.05),
-			BackgroundTransparency = 1,
-			Text = tostring(Index % 2),
-			TextColor3 = Color3.fromRGB(0, 255, 0),
-			TextStrokeColor3 = Color3.fromRGB(0, 255, 0),
-			TextStrokeTransparency = 0.15,
-			TextSize = 12,
-			Font = Enum.Font.GothamBold,
-			ZIndex = 1
-		})
-		table.insert(AnimatedDots, Dot)
-		
-		task.spawn(function()
-			while Dot.Parent do
-				local Target = UDim2.fromScale(Dot.Position.X.Scale, 1.05)
-				local Tween = CreateTween({Dot, "Position", Target, 3 + Index % 3})
-				Tween.Completed:Wait()
-				if Dot.Parent then
-					Dot.Position = UDim2.fromScale(math.random(5, 95) / 100, -0.05)
-				end
-			end
-		end)
-	end
 	
 	local Components = Create("Folder", MainFrame, {
 		Name = "Components"
@@ -1663,10 +1638,6 @@ function redzlib:MakeWindow(Configs)
 			CreateTween({MainFrame, "Size", SaveSize, 0.25, true})
 			ControlSize1.Visible = true
 			ControlSize2.Visible = true
-			for _, Dot in ipairs(AnimatedDots) do
-				Dot.Visible = true
-				Dot.BackgroundTransparency = 1
-			end
 			Minimized = false
 		else
 			MinimizeButton.Image = "rbxassetid://10734924532"
@@ -1674,10 +1645,6 @@ function redzlib:MakeWindow(Configs)
 			NeonBorder.Enabled = false
 			ControlSize1.Visible = false
 			ControlSize2.Visible = false
-			for _, Dot in ipairs(AnimatedDots) do
-				Dot.Visible = false
-				Dot.BackgroundTransparency = 1
-			end
 			CreateTween({MainFrame, "Size", UDim2.fromOffset(MainFrame.Size.X.Offset, 28), 0.25, true})
 			Minimized = true
 		end
