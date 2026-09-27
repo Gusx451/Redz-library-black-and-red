@@ -19,9 +19,9 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
 			["Color Stroke"] = Color3.fromRGB(25, 25, 25),
-			["Color Theme"] = Color3.fromRGB(65, 150, 255),
-			["Color Text"] = Color3.fromRGB(255, 255, 255),
-			["Color Dark Text"] = Color3.fromRGB(170, 0, 255)
+			["Color Theme"] = Color3.fromRGB(255, 0, 0),
+			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
 		},
 		Darker = {
 			["Color Hub 1"] = ColorSequence.new({
@@ -31,9 +31,9 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
 			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
-			["Color Theme"] = Color3.fromRGB(65, 150, 255),
-			["Color Text"] = Color3.fromRGB(255, 255, 255),
-			["Color Dark Text"] = Color3.fromRGB(170, 0, 255)
+			["Color Theme"] = Color3.fromRGB(255, 0, 0),
+			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
 		},
 		Dark = {
 			["Color Hub 1"] = ColorSequence.new({
@@ -43,9 +43,9 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(45, 45, 45),
 			["Color Stroke"] = Color3.fromRGB(65, 65, 65),
-			["Color Theme"] = Color3.fromRGB(65, 150, 255),
-			["Color Text"] = Color3.fromRGB(255, 255, 255),
-			["Color Dark Text"] = Color3.fromRGB(170, 0, 255)
+			["Color Theme"] = Color3.fromRGB(255, 0, 0),
+			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
 		},
 		Purple = {
 			["Color Hub 1"] = ColorSequence.new({
@@ -55,9 +55,9 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
 			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
-			["Color Theme"] = Color3.fromRGB(65, 150, 255),
-			["Color Text"] = Color3.fromRGB(255, 255, 255),
-			["Color Dark Text"] = Color3.fromRGB(170, 0, 255)
+			["Color Theme"] = Color3.fromRGB(255, 0, 0),
+			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
 		}
 	},
 	Info = {
@@ -1451,7 +1451,7 @@ function redzlib:MakeWindow(Configs)
 		Size = UDim2.fromScale(1, 1),
 		Position = UDim2.fromScale(0, 0),
 		BackgroundTransparency = 1,
-		Image = "rbxassetid://10386332910",
+		Image = "rbxassetid://121596637590066",
 		ImageTransparency = 0,
 		ImageColor3 = Color3.fromRGB(255, 255, 255),
 		ScaleType = Enum.ScaleType.Crop,
@@ -1461,18 +1461,18 @@ function redzlib:MakeWindow(Configs)
 	})
 	Make("Corner", BackgroundImage, UDim.new(0, 7))
 	local NeonBorder = Create("UIStroke", MainFrame, {
-		Color = Color3.fromRGB(170, 0, 255),
+		Color = Color3.fromRGB(255, 0, 0),
 		Thickness = 2,
 		Transparency = 0.05,
 		ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	})
 	local NeonBorderGradient = Create("UIGradient", NeonBorder, {
 		Color = ColorSequence.new({
-			ColorSequenceKeypoint.new(0, Color3.fromRGB(170, 0, 255)),
-			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(85, 0, 130)),
-			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(210, 80, 255)),
-			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(85, 0, 130)),
-			ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
+			ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+			ColorSequenceKeypoint.new(0.25, Color3.fromRGB(150, 0, 0)),
+			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 55, 55)),
+			ColorSequenceKeypoint.new(0.75, Color3.fromRGB(150, 0, 0)),
+			ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
 		})
 	})
 	TweenService:Create(NeonBorderGradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {
@@ -1501,7 +1501,7 @@ function redzlib:MakeWindow(Configs)
 		Text = WTitle,
 		TextXAlignment = "Left",
 		TextSize = 12,
-		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextColor3 = Color3.fromRGB(255, 0, 0),
 		BackgroundTransparency = 1,
 		Font = Enum.Font.GothamMedium,
 		ZIndex = 10,
@@ -2160,7 +2160,7 @@ function redzlib:MakeWindow(Configs)
 			local DropFrame = Create("Frame", NoClickFrame, {
 				Size = UDim2.new(SelectedFrame.Size.X, 0, 0),
 				BackgroundTransparency = 0.1,
-				BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+				BackgroundColor3 = Color3.fromRGB(35, 0, 0),
 				AnchorPoint = Vector2.new(0, 1),
 				Name = "DropdownFrame",
 				ClipsDescendants = true,
@@ -2193,7 +2193,7 @@ function redzlib:MakeWindow(Configs)
 				WaitClick = true
 				CreateTween({Arrow, "Rotation", 0, 0.2})
 				CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
-				CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+				CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 0, 0), 0.2})
 				Arrow.Image = "rbxassetid://10709791523"
 				NoClickFrame.Visible = false
 				WaitClick = false
@@ -2222,7 +2222,7 @@ function redzlib:MakeWindow(Configs)
 				WaitClick = true
 				if NoClickFrame.Visible then
 					Arrow.Image = "rbxassetid://10709791523"
-					CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+					CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 0, 0), 0.2})
 					CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
 					NoClickFrame.Visible = false
 				else
@@ -2645,7 +2645,7 @@ function redzlib:MakeWindow(Configs)
 			TextBoxInput.FocusLost:Connect(Input)Input()
 			
 			TextBoxInput.FocusLost:Connect(function()
-				CreateTween({Pencil, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+				CreateTween({Pencil, "ImageColor3", Color3.fromRGB(255, 0, 0), 0.2})
 			end)
 			TextBoxInput.Focused:Connect(function()
 				CreateTween({Pencil, "ImageColor3", Theme["Color Theme"], 0.2})
